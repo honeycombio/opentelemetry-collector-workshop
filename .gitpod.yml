@@ -1,6 +1,10 @@
 tasks:
   - init: Install Tilt
-  - command: curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+  - command: | 
+      rm /home/gitpod/.rvm/gems/ruby-3.1.2/bin/tilt
+      export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+      curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+      alias tilt=/home/linuxbrew/.linuxbrew/bin/tilt
 
 ports:
   - port: 5000
