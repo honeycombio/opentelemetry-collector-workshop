@@ -19,6 +19,8 @@ ports:
 vscode:
   extensions:
     - ms-azuretools.vscode-docker
+    - https://marketplace.visualstudio.com/_apis/public/gallery/publishers/Tchoupinax/vsextensions/tilt/1.0.9/vspackage
+
 
 github:
   prebuilds:
