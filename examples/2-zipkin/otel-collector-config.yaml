@@ -1,0 +1,39 @@
+receivers:
+  zipkin:
+   
+  otlp:
+    protocols:
+      grpc: # on port 4317
+      http: # on port 4318
+processors:
+  batch:
+
+extensions:
+  health_check:
+  pprof:
+    endpoint: :1888
+  zpages:
+    endpoint: :55679
+
+exporters:
+  logging:
+    logLevel: debug
+  
+
+  zipkin/traces:
+    endpoint: "http://zipkin:9411/api/v2/spans"
+
+  otlp/traces:
+    endpoint: "api.honeycomb.io:443"
+    headers:
+      "x-honeycomb-team": ${HONEYCOMB_API_KEY}
+      "x-honeycomb-dataset": ${HONEYCOMB_DATASET_NAME}
+  
+
+service:
+  extensions: [pprof, zpages, health_check]
+  pipelines:
+    traces:
+      receivers: [zipkin, otlp]
+      processors: [batch]
+      exporters: [otlp/traces, zipkin/traces, logging]
