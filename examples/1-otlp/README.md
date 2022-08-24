@@ -6,7 +6,7 @@ The [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) (OTLP Co
 
 Honeycomb supports receiving telemetry data via OpenTelemetry’s native protocol, OTLP, over gRPC and HTTP/protobuf.
 
-To send trace or metrics data to Honeycomb, you must configure an OTLP exporter, passing in your Honeycomb API Key and dataset as headers:
+To send trace or metrics data to Honeycomb, you must configure an OTLP exporter by passing in your Honeycomb API Key and dataset as headers:
 
 ```yaml
 exporters:
