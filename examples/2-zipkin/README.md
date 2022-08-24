@@ -4,7 +4,7 @@ In this example, we will be sending Zipkin PHP to Honeycomb.
 
 Applications instrumented with OpenTelemetry SDKs or with Jaeger, Zipkin, or OpenCensus can use the OpenTelemetry Collector to send trace data to Honeycomb as events. 
 
-To send trace or metrics data to Honeycomb, you must configure an OTLP exporter, passing in your Honeycomb API Key and dataset as headers:
+To send trace or metrics data to Honeycomb, you must configure an OTLP exporter, passing in your Honeycomb API Key and dataset (if using Honeycomb Classic) as headers:
 
 ```yaml
 exporters:
