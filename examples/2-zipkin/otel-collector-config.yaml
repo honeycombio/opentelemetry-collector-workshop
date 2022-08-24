@@ -9,9 +9,12 @@ processors:
   batch:
 
 extensions:
-  health_check:
-  pprof:
-    endpoint: :1888
+  health_check: # on port 13133
+    endpoint: "0.0.0.0:13133"
+    check_collector_pipeline:
+      enabled: true
+      interval: "5m"
+      exporter_failure_threshold: 5
   zpages:
     endpoint: :55679
 
@@ -28,10 +31,10 @@ exporters:
     headers:
       "x-honeycomb-team": ${HONEYCOMB_API_KEY}
       "x-honeycomb-dataset": ${HONEYCOMB_DATASET_NAME}
-  
+    
 
 service:
-  extensions: [pprof, zpages, health_check]
+  extensions: [zpages, health_check]
   pipelines:
     traces:
       receivers: [zipkin, otlp]
