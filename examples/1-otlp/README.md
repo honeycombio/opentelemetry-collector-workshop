@@ -39,7 +39,7 @@ cd examples/1-otlp/
 tilt up
 ```
 
-**NOTE:** _Once tilt is initialized, **"The browser interrupted the opening of a new tab or window. Press 'Open' to open it anyway."** prompt will appear on the screen. Select `Open` to view the logs of your application and OTEL collector_
+**NOTE:** _Once tilt is initialized, a prompt -- **"The browser interrupted the opening of a new tab or window. Press 'Open' to open it anyway."** -- will appear on the screen. Select `Open` to view the logs of your application and OTEL collector._
 
 
 ### Creating Data
