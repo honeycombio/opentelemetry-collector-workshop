@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./application/frontend
+      dockerfile: Dockerfile-frontend
+    environment:
+      - HTTP_REPORTER_URL=http://otel-collector:9411/api/v2/spans
+    ports:
+      - "8081:8081"
+    depends_on:
+      - backend
+  backend:
+    container_name: backend
+    build:
+      context: ./application/backend
+      dockerfile: Dockerfile-backend
+    environment:
+      - HTTP_REPORTER_URL=http://otel-collector:9411/api/v2/spans
+    ports: 
+     - "9000:9000"
+  otel-collector:
+    container_name: otel-collector
+    image: otel/opentelemetry-collector-contrib:latest
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "1888:1888"   # pprof extension
+      - "13133:13133" # health_check extension
+      - "4317"        # OTLP gRPC receiver
+      - "55679:55679" # zpages extension
+      - "9411" # zipkin
+    environment:
+      HONEYCOMB_API_KEY: 
+      HONEYCOMB_DATASET_NAME: php-example
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin:latest
+    command: --logging.level.zipkin2=DEBUG
+    ports:
+      - "9411:9411"
+    environment:
+      - QUERY_LOG_LEVEL=DEBUG
+    

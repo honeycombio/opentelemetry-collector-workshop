@@ -1,0 +1,27 @@
+FROM alpine:3.15
+RUN apk --no-cache add \
+    wget \
+    curl \
+    php \
+    php-curl \
+    php-iconv \
+    php-json \
+    php-mbstring \
+    php-openssl \
+    php-phar \
+    php-dom \
+    php-xml \
+    php-tokenizer \
+    php-ctype \
+    php-xmlwriter \
+    php-session \
+    bash \
+    git
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY . /usr/src/application/frontend/
+WORKDIR /usr/src/application/frontend/
+RUN composer install
+RUN composer dumpautoload
+CMD [ "composer", "run-frontend" ]

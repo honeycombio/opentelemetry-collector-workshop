@@ -1,0 +1,20 @@
+{
+    "name": "openzipkin/zipkin-php-example",
+    "description": "Example of two services collaborating in a request",
+    "require": {
+        "monolog/monolog": "^1.23",
+        "guzzlehttp/guzzle": "^7.2",
+        "openzipkin/zipkin": "3.0.0",
+        "symfony/http-foundation": "3.4.x-dev"
+    },
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "Alayshia Knighten",
+            "email": "alayshia@honeycomb.io"
+        }
+    ],
+    "scripts": {
+        "run-backend": "php -S 0.0.0.0:9000"
+    }
+}
