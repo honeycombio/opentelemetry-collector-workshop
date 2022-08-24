@@ -2,7 +2,7 @@
 
 # Honeycomb's OpenTelemetry Collector Workshop
 
-Welcome to the home of the OpenTelemetry Collector Workshop. 
+Welcome to the home of the OpenTelemetry Collector Workshop.
 
 These exercises are an **instructor-led** approach to understanding OTel collector **concepts**, **configuration**, and **troubleshooting**.
 
@@ -20,7 +20,7 @@ GitPod is the recommended for this workshop as it provides a working environment
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop/tree/wip.alayshia)
 ### Usage
 
-To utilize the environment, you will need to setup up an environment variable for your _API Key_.
+To utilize the environment, you will need to setup up an environment variable for your _API Key_ and have access to the gitpod.
 
 ### Environment Variables
 
@@ -35,6 +35,33 @@ _**NOTE:** If using Honeycomb Classic, you will also need to set up your environ
 
 ## Docker
 
+You can also utilize `Docker` to run the machine as well on your local system.
+
+### Usage
+
+You will need to have the following:
+
+- [Docker](https://www.docker.com)
+- Git
+- Code Editor of Choice
+
+Once you have the proper requirements, then `clone the repository` and set the `environment variables`.
+
+To set the environment variables locally: 
+
+```sh
+export HONEYCOMB_API_KEY=XXXXX
+export HONEYCOMB_DATASET_NAME=YOUR_DATA_SET_NAME # If using Classic
+```
+
+
+
 ## Things To Remember
 
-- Each example is located within its respected folder
+- Ask Questions :question:
+- Have Fun :smile:
+
+
+## License
+
+[APACHE](LICENSE) - Honeycomb - 2022
