@@ -15,7 +15,7 @@ Slides will be provided as guidance at the beginning of the training.
 
 ## Gitpod
 
-GitPod is the recommended for this workshop as it provides a working environment without the hassle of setting up your own demo environment.
+Gitpod is the recommended for this workshop as it provides a working environment without the hassle of setting up your own demo environment.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop/tree/wip.alayshia)
 ### Usage
