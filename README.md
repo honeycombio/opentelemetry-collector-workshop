@@ -13,7 +13,7 @@ Slides will be provided as guidance at the beginning of the training.
 - [Honeycomb Account](https://ui.honeycomb.io/signup)
 - Access to [GitPod](https://gitpod.io) or a [Docker](https://www.docker.com) Environment
 
-## GitPod
+## Gitpod
 
 GitPod is the recommended for this workshop as it provides a working environment without the hassle of setting up your own demo environment.
 
