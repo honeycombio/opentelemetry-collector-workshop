@@ -2,7 +2,7 @@
 
 ## Using the Collector
 
-The [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) offers a vendor-agnostic way to gather observability data from a variety of instrumentation solutions and send that data to Honeycomb.
+The [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) (OTLP Collector) offers a vendor-agnostic way to gather observability data from a variety of instrumentation solutions and to send that data to Honeycomb.
 
 Honeycomb supports receiving telemetry data via OpenTelemetry’s native protocol, OTLP, over gRPC and HTTP/protobuf.
 
