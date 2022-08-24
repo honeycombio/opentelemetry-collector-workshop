@@ -20,7 +20,7 @@ GitPod is the recommended for this workshop as it provides a working environment
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop/tree/wip.alayshia)
 ### Usage
 
-To utilize the environment, you will need to setup up an environment variable for your _API Key_ and have access to the gitpod.
+To utilize the environment, you will need to set up an environment variable for your _API Key_ and have access to the Gitpod.
 
 ### Environment Variables
 
