@@ -24,7 +24,7 @@ To utilize the environment, you will need to set up an environment variable for 
 
 ### Environment Variables
 
-To create environment variables, you can access [GitPod's user variables](https://gitpod.io/variables).
+To create environment variables, you can access [Gitpod's user variables](https://gitpod.io/variables).
 
 - **Select** `New Variable`
 - **Name** `HONEYCOMB_API_KEY`
