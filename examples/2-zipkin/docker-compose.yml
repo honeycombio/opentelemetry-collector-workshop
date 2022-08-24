@@ -35,7 +35,7 @@ services:
       - "9411" # zipkin
     environment:
       HONEYCOMB_API_KEY: 
-      HONEYCOMB_DATASET_NAME: php-example
+      HONEYCOMB_DATASET_NAME:
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin:latest
