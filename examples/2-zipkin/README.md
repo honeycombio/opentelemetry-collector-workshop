@@ -32,7 +32,7 @@ service:
 
 ## Running This Exercise
 
-### Using GitPod
+### Using Gitpod
 
 1. Open the Workspace
 
