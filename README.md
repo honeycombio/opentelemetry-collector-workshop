@@ -51,7 +51,7 @@ To set the environment variables locally:
 
 ```sh
 export HONEYCOMB_API_KEY=XXXXX
-export HONEYCOMB_DATASET_NAME=YOUR_DATA_SET_NAME # If using Classic
+export HONEYCOMB_DATASET_NAME=YOUR_DATA_SET_NAME # Required if using Honeycomb Classic
 ```
 
 
