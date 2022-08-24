@@ -32,7 +32,7 @@ To create environment variables, you can access [Gitpod's user variables](https:
 - **Value** `YOUR_API_KEY`
 - **Scope** `*/*`
 
-_**NOTE:** If using Honeycomb Classic, you will also need to set up your environment variables for `HONEYCOMB_DATASET` as well._
+_**NOTE:** If using Honeycomb Classic, you will also need to set a second environment variables for `HONEYCOMB_DATASET_NAME`._
 
 ## Docker
 
