@@ -27,4 +27,5 @@ services:
       - "55670:55679" # zpages extension
       - "9411" # zipkin
     environment:
-      HONEYCOMB_API_KEY: 
+      HONEYCOMB_API_KEY:
+      HONEYCOMB_DATASET_NAME:
