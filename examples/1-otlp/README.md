@@ -23,7 +23,7 @@ exporters:
 
 1. Open the Workspace
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop/tree/wip.alayshia)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop)
 
 **NOTE:** Do not forget to set [Gitpod's user variables](https://gitpod.io/variables).
 
