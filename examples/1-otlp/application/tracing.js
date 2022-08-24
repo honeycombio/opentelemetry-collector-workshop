@@ -19,7 +19,8 @@ module.exports = () => {
   // set log level to DEBUG for a lot of output
   opentelemetry.diag.setLogger(new opentelemetry.DiagConsoleLogger(), opentelemetry.DiagLogLevel.INFO);
   
-  // const apikey = process.env.HONEYCOMB_API_KEY;
+  // Points to the collector
+  // You can optionally set the dataset here as well if using classic
   const serviceName = process.env.SERVICE_NAME || 'js-collector-service';
   const OTLP_ENDPOINT = process.env.HONEYCOMB_API_ENDPOINT || 'grpc://otel-collector:4317/';
   
@@ -30,15 +31,14 @@ module.exports = () => {
       [SemanticResourceAttributes.SERVICE_NAME]: serviceName
     }),
   });
-  // const metadata = new grpc.Metadata();
-  // metadata.set("x-honeycomb-team", apikey);
+
 
   provider.addSpanProcessor(
     new BatchSpanProcessor(
       new OTLPTraceExporter({
         url: OTLP_ENDPOINT,
         credentials: grpc.credentials.createInsecure(),
-        // metadata,
+
       }), 
     )
   );
