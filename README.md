@@ -11,7 +11,7 @@ Slides will be provided as guidance at the beginning of the training.
 ## Requirements
 
 - [Honeycomb Account](https://ui.honeycomb.io/signup)
-- Access to [GitPod](https://gitpod.io) or a [Docker](https://www.docker.com) Environment
+- Access to [Gitpod](https://gitpod.io) or a [Docker](https://www.docker.com) Environment
 
 ## Gitpod
 
