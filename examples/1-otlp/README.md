@@ -25,7 +25,7 @@ exporters:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop/tree/wip.alayshia)
 
-**NOTE:** Do not forget to set [GitPod's user variables](https://gitpod.io/variables).
+**NOTE:** Do not forget to set [Gitpod's user variables](https://gitpod.io/variables).
 
 2. Change into the Proper Directory
 
