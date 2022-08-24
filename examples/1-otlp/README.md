@@ -8,7 +8,7 @@ Honeycomb supports receiving telemetry data via OpenTelemetry’s native protoco
 
 To send trace or metrics data to Honeycomb, you must configure an OTLP exporter, passing in your Honeycomb API Key and dataset as headers:
 
-```toml
+```yaml
 exporters:
   otlp:
     endpoint: "api.honeycomb.io:443"
