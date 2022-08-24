@@ -40,7 +40,7 @@ service:
 
 **NOTE:** Do not forget to set [Gitpod's user variables](https://gitpod.io/variables).
 
-2. Change into the Proper Directory
+2. Change into the Correct Working Directory
 
 ```bash
 cd examples/2-zipkin/
