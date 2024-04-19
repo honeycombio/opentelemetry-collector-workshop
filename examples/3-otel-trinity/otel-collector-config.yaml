@@ -1,0 +1,64 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'otelcol'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['0.0.0.0:8888']
+          metric_relabel_configs:
+            - source_labels: [__name__]
+              regex: '.*grpc_io.*'
+              action: drop
+
+processors:
+  batch:
+
+exporters:
+  otlp/logs:
+    endpoint: "api.honeycomb.io:443"
+    headers:
+      "x-honeycomb-team": ${HONEYCOMB_API_KEY}
+      "x-honeycomb-dataset": 'o11y-workshop'
+
+  otlp/metrics:
+    endpoint: "api.honeycomb.io:443"
+    headers:
+      "x-honeycomb-team": ${HONEYCOMB_API_KEY}
+      "x-honeycomb-dataset": 'o11y-workshop'
+
+  otlp/traces:
+    endpoint: "api.honeycomb.io:443"
+    headers:
+      "x-honeycomb-team": ${HONEYCOMB_API_KEY}
+      "x-honeycomb-dataset": 'o11y-workshop'
+
+  logging:
+    verbosity: detailed
+
+service:
+  telemetry:
+    metrics:
+      level: detailed
+      address: '0.0.0.0:8888'
+  pipelines:
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp/logs, logging]
+
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp/metrics, logging]
+
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp/traces, logging]
