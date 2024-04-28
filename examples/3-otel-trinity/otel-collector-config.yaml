@@ -9,7 +9,7 @@ receivers:
     config:
       scrape_configs:
         - job_name: 'otelcol'
-          scrape_interval: 10s
+          scrape_interval: 30s
           static_configs:
             - targets: ['0.0.0.0:8888']
           metric_relabel_configs:
@@ -19,6 +19,18 @@ receivers:
 
 processors:
   batch:
+  memory_limiter:
+    check_interval: 5s
+    limit_mib: 4000
+    spike_limit_mib: 500
+  resource:
+    attributes:
+      - key: env
+        value: local
+        action: insert
+      - key: usage
+        value: otel-collector-workshop
+        action: insert
 
 exporters:
   otlp/logs:
@@ -39,6 +51,12 @@ exporters:
       "x-honeycomb-team": ${HONEYCOMB_API_KEY}
       "x-honeycomb-dataset": 'o11y-workshop'
 
+  otlp/collector:
+    endpoint: "api.honeycomb.io:443"
+    headers:
+      "x-honeycomb-team": ${HONEYCOMB_API_KEY}
+      "x-honeycomb-dataset": 'otel-collector'
+
   logging:
     verbosity: detailed
 
@@ -50,15 +68,20 @@ service:
   pipelines:
     logs:
       receivers: [otlp]
-      processors: [batch]
+      processors: [batch, memory_limiter]
       exporters: [otlp/logs, logging]
 
     metrics:
       receivers: [otlp]
-      processors: [batch]
+      processors: [batch, memory_limiter]
       exporters: [otlp/metrics, logging]
+
+    metrics/collector:
+      receivers: [prometheus]
+      processors: [batch]
+      exporters: [otlp/collector]
 
     traces:
       receivers: [otlp]
-      processors: [batch]
+      processors: [batch, memory_limiter, resource]
       exporters: [otlp/traces, logging]
