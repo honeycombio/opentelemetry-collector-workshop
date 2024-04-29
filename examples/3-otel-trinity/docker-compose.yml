@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile
       context: ./application
     environment:
-      - HONEYCOMB_API_KEY=
-      - OTEL_SERVICE_NAME=word-greeter
+      - HONEYCOMB_API_KEY=${HONEYCOMB_API_KEY}
+      - OTEL_SERVICE_NAME=otel-trinity
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
     ports:
       - "8080:8080"
@@ -19,6 +19,7 @@ services:
     command: ["--config=/etc/otel-collector-config.yaml"]
     volumes:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - ./logs:/logs
     ports:
       - "1888:1888"   # pprof extension
       - "13133:13133" # health_check extension

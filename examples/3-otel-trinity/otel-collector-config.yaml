@@ -16,6 +16,11 @@ receivers:
             - source_labels: [__name__]
               regex: '.*grpc_io.*'
               action: drop
+  filelog:
+    include: [ /logs/collector-debug.log ]
+    operators:
+      - type: json_parser
+        parse_from: body
 
 processors:
   batch:
@@ -65,11 +70,23 @@ service:
     metrics:
       level: detailed
       address: '0.0.0.0:8888'
+    logs:
+      level: "DEBUG"
+      development: true
+      encoding: "json"
+      output_paths:
+        - '/logs/collector-debug.log'
+
   pipelines:
     logs:
       receivers: [otlp]
       processors: [batch, memory_limiter]
       exporters: [otlp/logs, logging]
+
+    logs/collector:
+      receivers: [ filelog ]
+      processors: [ batch ]
+      exporters: [otlp/collector]
 
     metrics:
       receivers: [otlp]
