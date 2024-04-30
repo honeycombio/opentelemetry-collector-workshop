@@ -80,7 +80,7 @@ service:
   pipelines:
     logs:
       receivers: [otlp]
-      processors: [batch, memory_limiter]
+      processors: [memory_limiter, batch]
       exporters: [otlp/logs, logging]
 
     logs/collector:
@@ -90,7 +90,7 @@ service:
 
     metrics:
       receivers: [otlp]
-      processors: [batch, memory_limiter]
+      processors: [memory_limiter, batch]
       exporters: [otlp/metrics, logging]
 
     metrics/collector:
@@ -100,5 +100,5 @@ service:
 
     traces:
       receivers: [otlp]
-      processors: [batch, memory_limiter, resource]
+      processors: [memory_limiter, resource, batch]
       exporters: [otlp/traces, logging]
