@@ -11,42 +11,23 @@ Slides will be provided as guidance at the beginning of the training.
 ## Requirements
 
 - [Honeycomb Account](https://ui.honeycomb.io/signup)
-- Access to [Gitpod](https://gitpod.io) or a [Docker](https://www.docker.com) Environment
+- Installation of [Tilt](https://tilt.dev/) and [Docker](https://www.docker.com) Environment
 
-## Gitpod
+## Tilt
 
-Gitpod is the recommended for this workshop as it provides a working environment without the hassle of setting up your own demo environment.
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/honeycombio/opentelemetry-collector-workshop)
-
-### Usage
-
-To utilize the environment, you will need to set up an environment variable for your _API Key_ and have access to the Gitpod.
-
-### Environment Variables
-
-To create environment variables, you can access [Gitpod's user variables](https://gitpod.io/variables).
-
-- **Select** `New Variable`
-- **Name** `HONEYCOMB_API_KEY`
-- **Value** `YOUR_API_KEY`
-- **Scope** `*/*`
-
-_**NOTE:** If using Honeycomb Classic, you will also need to set a second environment variables for `HONEYCOMB_DATASET_NAME`._
+[Tilt](https://docs.tilt.dev/install.html) is recommended for this workshop as it provides a working environment without the hassle of setting up the demo environment.
 
 ## Docker
 
-You can also utilize `Docker` to run the machine as well on your local system.
+[Docker](https://docs.docker.com/get-docker/) needs to be installed which will run containers necessary for trying out the workshop demos.
 
-### Usage
+## Usage
 
-You will need to have the following:
+To utilize the environment, you will need to set up an environment variable for your _API Key_ and have **Docker** and **Tilt** installed and ready.
 
-- [Docker](https://www.docker.com)
-- Git
-- Code Editor of Choice
+### Environment Variables
 
-Once you have the proper requirements, then `clone the repository` and set the `environment variables`.
+You will need to export the environment variable `HONEYCOMB_API_KEY` with the value as your valid Honeycomb API KEY. Instruction of creating and getting the API KEY can be found [here](https://docs.honeycomb.io/get-started/configure/environments/manage-api-keys/).
 
 To set the environment variables locally: 
 
@@ -55,14 +36,21 @@ export HONEYCOMB_API_KEY=XXXXX
 export HONEYCOMB_DATASET_NAME=YOUR_DATA_SET_NAME # Required if using Honeycomb Classic
 ```
 
+_**NOTE:** If using Honeycomb Classic, you must set a second environment variables for `HONEYCOMB_DATASET_NAME`._
 
+You then clone the repository on your local environment using the `git clone` command:
+
+```
+git clone git@github.com:honeycombio/opentelemetry-collector-workshop.git
+```
+
+There are [examples](./examples) which contains folders having README for how to start each example demos.
 
 ## Things To Remember
 
 - Ask Questions :question:
 - Have Fun :smile:
 
-
 ## License
 
-[APACHE](LICENSE) - Honeycomb - 2022
+[APACHE](LICENSE) - Honeycomb - 2024
