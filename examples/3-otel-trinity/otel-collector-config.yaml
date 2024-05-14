@@ -29,6 +29,7 @@ processors:
     limit_mib: 4000
     spike_limit_mib: 500
   resource:
+    # adding new environments to the resource
     attributes:
       - key: env
         value: local
@@ -36,7 +37,11 @@ processors:
       - key: usage
         value: otel-collector-workshop
         action: insert
-
+  filter/library_name:
+    traces:
+      span:
+        - 'instrumentation_scope.name == "@opentelemetry/instrumentation-fs"'
+  
 exporters:
   otlp/logs:
     endpoint: "api.honeycomb.io:443"
@@ -100,5 +105,6 @@ service:
 
     traces:
       receivers: [otlp]
-      processors: [memory_limiter, resource, batch]
+      processors: [memory_limiter, filter/library_name, resource, batch]
+      # processors: [memory_limiter, resource, batch]
       exporters: [otlp/traces, logging]
