@@ -17,7 +17,7 @@ opentelemetry.diag.setLogger(new opentelemetry.DiagConsoleLogger(), opentelemetr
 app.get("/traces", (req, res) => {
   const span = tracer.startSpan('otel-traces');
   console.log('Accessed the Hello Greeter Endpoint - 🐾 traces')
-  var message = 'Greetings from OTEL collector workshop: traces!';
+  var message = 'Greetings from OTEL collector workshop: 🐾 traces!';
   res.setHeader('content-type', 'text/html');
   res.send('<h1>' + message + '</h1>');
   span.setAttribute("message", message)
@@ -30,7 +30,7 @@ app.get("/metrics", (req, res) => {
   console.log('Accessed the Hello Greeter Endpoint - 📈 metrics')
   const meter = meterProvider.getMeter('meter');
   const counter = meter.createCounter('hello-count');
-  var message = 'Greetings from OTEL collector workshop: metrics!';
+  var message = 'Greetings from OTEL collector workshop: 📈 metrics!';
   res.setHeader('content-type', 'text/html');
   res.send('<h1>' + message + '</h1>');
   console.log(`Added the message variable: ${message}`);
@@ -40,7 +40,7 @@ app.get("/metrics", (req, res) => {
 // logs
 app.get("/logs", (req, res) => {
   console.log('Accessed the Hello Greeter Endpoint - 🪵 logs')
-  var message = 'Greetings from OTEL collector workshop: logs!';
+  var message = 'Greetings from OTEL collector workshop: 🪵 logs!';
   logger.emit({
     severityNumber: logsAPI.SeverityNumber.INFO,
     severityText: 'INFO',
