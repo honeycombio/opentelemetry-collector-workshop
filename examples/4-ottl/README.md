@@ -7,7 +7,7 @@ This workshop lets student test how to apply various transformation statements l
 
 ## How to use
 
-1. Open your browser and visit (https://ottl.run)[https://ottl.run] which is the OTTL playground web page
+1. Open your browser and visit <a href="https://ottl.run" target="_blank">https://ottl.run</a> which is the OTTL playground web page
 2. Copy the json payload (*.json files)
 3. Copy the matching YAML configuration that matches the payload (*.yaml files)
 4. Press `run` button to see the results
