@@ -1,0 +1,6 @@
+metric_statements:
+ - context: datapoint
+   statements:
+     - replace_pattern(attributes["http.url"], "https://web.page.com/page/\\d+/user/\\d+/resource/\\d+", "https://web.page.com/page/{pageId}/user/{userId}/resource/{resourceId}")
+     - replace_pattern(attributes["http.url"], "https://web.page.com/edit/\\d+", "https://web.page.com/edit/{edit_id}")
+     - replace_pattern(attributes["http.url"], "\\?(.+)$", "")

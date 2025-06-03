@@ -1,0 +1,79 @@
+{
+    "resourceMetrics": [
+      {
+        "resource": {
+          "attributes": [
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "otel-o11y-workshop"
+              }
+            }
+          ]
+        },
+        "scopeMetrics": [
+          {
+            "scope": {
+              "name": "workshop.library",
+              "version": "1.0.0",
+              "attributes": [
+                {
+                  "key": "library.description",
+                  "value": {
+                    "stringValue": "This is for testing purpose only."
+                  }
+                }
+              ]
+            },
+            "metrics": [
+              {
+                "name": "access.count",
+                "unit": "1",
+                "description": "Number of access to a particular web resource",
+                "sum": {
+                  "aggregationTemporality": 1,
+                  "isMonotonic": true,
+                  "dataPoints": [
+                    {
+                      "asDouble": 5,
+                      "startTimeUnixNano": "1544712660300000000",
+                      "timeUnixNano": "1544712660300000000",
+                      "attributes": [
+                        {
+                          "key": "http.url",
+                          "value": {
+                            "stringValue": "https://web.page.com/page/12455332/user/35114849252/resource/6092340234"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "page.duration_ms",
+                "unit": "1",
+                "description": "amount of time it took to load a particular web page",
+                "gauge": {
+                  "dataPoints": [
+                    {
+                      "asDouble": 10,
+                      "timeUnixNano": "1544712660300000000",
+                      "attributes": [
+                        {
+                          "key": "http.url",
+                          "value": {
+                            "stringValue": "https://web.page.com/edit/104941092?page=1&line=2&content=abcdefg"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
