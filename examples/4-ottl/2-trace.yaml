@@ -1,0 +1,23 @@
+trace_statements:
+  - context: spanevent
+    statements:
+      # js-browser document-load
+      - set(span.attributes["webjs.connectEnd_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "connectEnd" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.connectStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "connectStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.domainLookupEnd_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "domainLookupEnd" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.domainLookupStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "domainLookupStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.domComplete_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "domComplete" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.domContentLoadedEventEnd_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "domContentLoadedEventEnd" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.domContentLoadedEventStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "domContentLoadedEventStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.domInteractive_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "domInteractive" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.fetchStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "fetchStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.firstContentfulPaint_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "firstContentfulPaint" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.firstPaint_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "firstPaint" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.loadEventEnd_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "loadEventEnd" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.loadEventStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "loadEventStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.requestStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "requestStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.responseEnd_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "responseEnd" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.responseStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "responseStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.secureConnectionStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "secureConnectionStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.unloadEventEnd_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "unloadEventEnd" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"
+      - set(span.attributes["webjs.unloadEventStart_ms"], (time_unix_nano - span.start_time_unix_nano) / 1000000) where name == "unloadEventStart" and instrumentation_scope.name == "@opentelemetry/instrumentation-document-load"

@@ -1,0 +1,8 @@
+log_statements:
+ - context: log
+   statements:
+    - merge_maps(cache, ParseJSON(body), "upsert") where IsMatch(body, "^\\{")
+    - set(time, Time(cache["timestamp"], "%Y-%m-%dT%H:%M:%SZ"))
+    - set(severity_text, cache["level"])
+    - set(body, cache["message"])
+    - 'merge_maps(attributes, ExtractPatterns(cache["message"], "Elapsed time: (?P<duration_ms>[0-9]+)ms"), "upsert")'
